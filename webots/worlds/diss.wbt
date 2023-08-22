@@ -1,0 +1,214 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/pal_robotics/tiago_base/protos/TiagoBase.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/devices/hokuyo/protos/HokuyoUrg04lxug01.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.4803313583801592 0.396105162507228 0.7825487118331955 1.3147317688243898
+  position -46.62551410620998 -51.22150484896938 58.157443261297466
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 40 40
+  floorTileSize 1.5 1.5
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+  wallHeight 1
+}
+DEF roadwall_west Solid {
+  translation -12 -14 0.04
+  children [
+    DEF wall Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 16 0.1 1
+      }
+    }
+  ]
+  boundingObject USE wall
+}
+DEF roadwall_east Solid {
+  translation 12 -14 0.04
+  children [
+    USE wall
+  ]
+  name "solid(1)"
+  boundingObject USE wall
+}
+DEF HWwest Solid {
+  translation -16 6 0.04
+  children [
+    DEF HouseBrth Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.1 20 1
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE HouseBrth
+}
+DEF HWeast Solid {
+  translation 16 6 0.04
+  children [
+    USE HouseBrth
+  ]
+  name "solid(3)"
+  boundingObject USE HouseBrth
+}
+DEF HWnorth Solid {
+  translation 0 16 0.04
+  children [
+    DEF nw Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 32 0.1 1
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject USE nw
+}
+DEF HWsouthW Solid {
+  translation -9 -4 0.04
+  children [
+    DEF swall Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 14 0.1 1
+      }
+    }
+  ]
+  name "solid(5)"
+  boundingObject USE swall
+}
+DEF HWsouthE Solid {
+  translation 9 -4 0.04
+  children [
+    USE swall
+  ]
+  name "solid(6)"
+  boundingObject USE swall
+}
+DEF inner_half_wall_1 Solid {
+  translation 4 0 0.04
+  children [
+    DEF innerHW Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.1 8 1
+      }
+    }
+  ]
+  name "solid(7)"
+  boundingObject USE innerHW
+}
+DEF inner_half_wall_2 Solid {
+  translation 6 12 0.04
+  children [
+    USE innerHW
+  ]
+  name "solid(8)"
+  boundingObject USE innerHW
+}
+DEF inner_half_wall_3 Solid {
+  translation 10 12 0.04
+  children [
+    USE innerHW
+  ]
+  name "solid(9)"
+  boundingObject USE innerHW
+}
+DEF inner_half_wall_4 Solid {
+  translation 3 8 0.04
+  rotation 0 0 1 1.5708
+  children [
+    USE innerHW
+  ]
+  name "solid(10)"
+  boundingObject USE innerHW
+}
+DEF inner_half_wall_5 Solid {
+  translation 12 4 0.04
+  rotation 0 0 1 1.5708
+  children [
+    USE innerHW
+  ]
+  name "solid(11)"
+  boundingObject USE innerHW
+}
+DEF inner_half_wall_6 Solid {
+  translation -12 0 0.04
+  children [
+    USE innerHW
+  ]
+  name "solid(12)"
+  boundingObject USE innerHW
+}
+DEF inner_half_wall_7 Solid {
+  translation -12 12 0.04
+  children [
+    USE innerHW
+  ]
+  name "solid(14)"
+  boundingObject USE innerHW
+}
+DEF inner_long_wall Solid {
+  translation -5.2 8 0.04
+  children [
+    DEF longwall Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.1 16 1
+      }
+    }
+  ]
+  name "solid(13)"
+  boundingObject USE longwall
+}
+DEF small_wall Solid {
+  translation -10 10 0.04
+  rotation 0 0 1 1.5708
+  children [
+    DEF smallwall Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.1 4 1
+      }
+    }
+  ]
+  name "solid(15)"
+  boundingObject USE smallwall
+}
+TiagoBase {
+  translation 0 0 0.0647708
+  rotation -0.11625425298354326 -0.17128103892112997 0.9783392838731034 0.006017148237869649
+  controller "TurtlebotCon"
+  bodySlot [
+    Compass {
+    }
+    GPS {
+    }
+  ]
+  lidarSlot [
+    HokuyoUrg04lxug01 {
+    }
+  ]
+}
