@@ -49,6 +49,15 @@ math uses atan2 to figure out angles in calculation of compass and headers
 
 # Future Work
 
+The project supports working of bot in one developed environment. Hence is constrited with the environment and situation that is put foward by ANNABELL. Althouight the program follows basic structure of following the room in accordance to the coordinates, it can be automated to know when the room changes. The project also discards comands like "pick the object " and "give to butler " hence the improvement on improving on these cases can be a step towards a better robotic model.
+Virtual time automation could be possible as YARP supports links with other ROS systems and can be utilised with steps to recognised environment, scan for object, and even take virtual time instruction from ANNABELL and feed instruction to it as well.
+
 # Summary of Contribution
 
+1. Using lidar as obstacle detector.
+2. Devising a algortihm for shortest distance traversal
+3. Reading ANNABELL ouput via YARP to use as input in Webots.
+4. Understanding of Compass and GPS in navigation.
+5. Understanding usage of Webots IDE as an ROS.
+6. Understanding of ANNABELL as an AI model.
 
