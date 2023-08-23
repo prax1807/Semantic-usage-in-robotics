@@ -32,7 +32,7 @@ Python for controllers in webots
 11. Run the simulation in accordance to where the robot is with specified location.
 
 # Technologies used
-ANNABELL : 
+<a href= "https://github.com/golosio/annabell">ANNABELL </a>: 
 C++ 70.7%
 C 13.3%
 Cuda 7.8%
@@ -54,10 +54,9 @@ Virtual time automation could be possible as YARP supports links with other ROS 
 
 # Summary of Contribution
 
-1. Using lidar as obstacle detector.
+1. Reading ANNABELL output via YARP to use as input in Webots. 
 2. Devising a algorithm for shortest distance traversal
-3. Reading ANNABELL output via YARP to use as input in Webots.
-4. Understanding of Compass and GPS in navigation.
-5. Understanding usage of Webots IDE as an ROS.
-6. Understanding of ANNABELL as an AI model.
+3. Understanding of lidar as obstacle detector,Compass and GPS in navigation.
+4. Understanding usage of Webots IDE as an ROS.
+5. Understanding of ANNABELL as an AI model.
 
