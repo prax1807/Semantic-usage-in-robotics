@@ -4,21 +4,14 @@ Robotics is generalised as physical task performing machines are advanced enough
 Task at hand includes environment traversal inside described house and fetching objects located at various locations all over the house. This all is carried out with the aim to guide the robot on taking a particular route with restrictions of travelling across certain rooms and alternatively take different paths.
 
 # Working of the project
-Robotics is generalised as physical task performing machines are advanced enough to successfully perform the tasks they are coded for. The question of further research looks at abilities to improving these functionalities or diversifying them. This paper focuses on diversifying the aspect of task performed with reference to descriptors given prior the robots working. 
-Task at hand includes environment traversal inside described house and fetching objects located at various locations all over the house. This all is carried out with the aim to guide the robot on taking a particular route with restrictions of travelling across certain rooms and alternatively take different paths.
+A pre trained AI model namely ANNABELL is used with ROS webots to achieve the goal of the dissertation. ANNABELL trained for multiple situations, one of them being a virtual dataset that fed with information provides guidance as per cardinl directions and picking up objects or giving them to people. On the other hand Webot being a IDE making robotic usage on virtual timestep. We run the virtual dataset used in ANNABELL as an input to the webots project that takes inputs of direction moving the robot to the inputted direction from ANNABELL. The input is analysed in webots to act accordingly.
 
 # Implementation
-We run the virtual dataset used in ANNABELL as an input to the webots project that takes inputs of direction moving the robot to the inputted direction from ANNABELL. The input is analysed in a way to find the straight path to designated coordinate using compass and gps. The path algorithm spins the robot to get the right heading which then moves forward on finishing the right heading. With achieved traversal we also use lidar imaging to avoid obstacles.
-
-# Technology used
-Webots IDE
-ANNABELL
-YARP: Yet Another Robot Platform
-Python for controllers in webots
+ANNABELL is trained on the virtual dataset contained with the corpus, this trains ANNABELL to navigate in a virtual maze using linguistic input. Achieveing the semantic part of the project we take the output prodiced by the model for test set(also included with the corpus) to use as input. To connect this output to webots we use YARP(yet another robot platform)
 
 # Running the project
 1. Follow setup guide to annabell and setup for your system with <b>yarp enabled</b>, install yarp with all dependencies included as well and also install webots for your system.
-2. The project uses virtual data set hence running annabell for virtual data set works.
+2. The project uses virtual data set hence use trains ANNABELL to navigate in a virtual maze using linguistic input.
 3. 1st Terminal: Open yarp server with the command " yarpserver --write".
 4. 2nd Terminal: run annabell on directory containing the virtual data set.
    in annabell load the trained weights form the trained file with the command " .load <file_name>.txt".
@@ -32,21 +25,24 @@ Python for controllers in webots
 11. Run the simulation in accordance to where the robot is with specified location.
 
 # Technologies used
-<a href= "https://github.com/golosio/annabell">ANNABELL </a>: 
+<a href= "https://github.com/golosio/annabell">ANNABELL </a>: <br>
 C++ 70.7%
 C 13.3%
 Cuda 7.8%
 Shell 7.3%
 Makefile 0.5%
-M4 0.4%
+M4 0.4% 
+<br>
 
-<a href= "https://github.com/cyberbotics/webots/tree/master">Webots</a> :
+<a href= "https://github.com/cyberbotics/webots/tree/master">Webots</a> :<br>
 Webots 50%
 Python 50%
 Python libraries used : Robot, csv , math , numpy
 Understanding of Lidar, compass , motors and gps used in robot
 math uses atan2 to figure out angles in calculation of compass and headers
+<br>
 
+<a href= "https://yarp.it/latest/index.html">YARP: Yet Another Robot Platform</a>
 # Future Work
 
 The project supports working of bot in one developed environment. Hence is constricted with the environment and situation that is put forward by ANNABELL. Although the program follows basic structure of following the room in accordance to the coordinates, it can be automated to know when the room changes. The project also discards commands like "pick the object " and "give to butler " hence the improvement on improving on these cases can be a step towards a better robotic model.<br>
