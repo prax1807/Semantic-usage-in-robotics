@@ -8,7 +8,7 @@ Robotics is generalised as physical task performing machines are advanced enough
 Task at hand includes environment traversal inside described house and fetching objects located at various locations all over the house. This all is carried out with the aim to guide the robot on taking a particular route with restrictions of travelling across certain rooms and alternatively take different paths.
 
 # Implementation
-We run the virtual dataset used in ANNABELL as an input to the webots project that takes inputs of direction moving the robot to the inputed direction from ANNABELL. The input is analysed in a way to find the straight path to designated coordinate using compass and gps. The path algoeithm spins the the robot to get the right heading which then moves forward on finising the right heading. With achieved traversal we also use lidar imaging to avoid obstacles.
+We run the virtual dataset used in ANNABELL as an input to the webots project that takes inputs of direction moving the robot to the inputted direction from ANNABELL. The input is analysed in a way to find the straight path to designated coordinate using compass and gps. The path algorithm spins the robot to get the right heading which then moves forward on finishing the right heading. With achieved traversal we also use lidar imaging to avoid obstacles.
 
 # Technology used
 Webots IDE
@@ -17,7 +17,7 @@ YARP: Yet Another Robot Platform
 Python for controllers in webots
 
 # Running the project
-1. Follow setup guide to annabell and setup for your system with <b>yarp enabled</b>, intall yarp with all dependencies included as well and also install webots for your system.
+1. Follow setup guide to annabell and setup for your system with <b>yarp enabled</b>, install yarp with all dependencies included as well and also install webots for your system.
 2. The project uses virtual data set hence running annabell for virtual data set works.
 3. 1st Terminal: Open yarp server with the command " yarpserver --write".
 4. 2nd Terminal: run annabell on directory containing the virtual data set.
@@ -49,14 +49,14 @@ math uses atan2 to figure out angles in calculation of compass and headers
 
 # Future Work
 
-The project supports working of bot in one developed environment. Hence is constrited with the environment and situation that is put foward by ANNABELL. Althouight the program follows basic structure of following the room in accordance to the coordinates, it can be automated to know when the room changes. The project also discards comands like "pick the object " and "give to butler " hence the improvement on improving on these cases can be a step towards a better robotic model.
+The project supports working of bot in one developed environment. Hence is constricted with the environment and situation that is put forward by ANNABELL. Although the program follows basic structure of following the room in accordance to the coordinates, it can be automated to know when the room changes. The project also discards commands like "pick the object " and "give to butler " hence the improvement on improving on these cases can be a step towards a better robotic model.
 Virtual time automation could be possible as YARP supports links with other ROS systems and can be utilised with steps to recognised environment, scan for object, and even take virtual time instruction from ANNABELL and feed instruction to it as well.
 
 # Summary of Contribution
 
 1. Using lidar as obstacle detector.
-2. Devising a algortihm for shortest distance traversal
-3. Reading ANNABELL ouput via YARP to use as input in Webots.
+2. Devising a algorithm for shortest distance traversal
+3. Reading ANNABELL output via YARP to use as input in Webots.
 4. Understanding of Compass and GPS in navigation.
 5. Understanding usage of Webots IDE as an ROS.
 6. Understanding of ANNABELL as an AI model.
