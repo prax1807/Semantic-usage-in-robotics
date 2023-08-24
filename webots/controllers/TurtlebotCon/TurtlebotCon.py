@@ -56,7 +56,7 @@ if __name__ == "__main__":
         rightMotor.setPosition(float('inf'))
         leftMotor.setVelocity(MAX_SPEED)
         rightMotor.setVelocity(MAX_SPEED)
-        print("Moving forward")
+        #print("Moving forward")
         return(MAX_SPEED, MAX_SPEED)
     
     def turnLeft():    
@@ -64,7 +64,7 @@ if __name__ == "__main__":
         rightMotor.setPosition(float('inf'))
         leftMotor.setVelocity(HALF_SPEED/9)
         rightMotor.setVelocity(HALF_SPEED)
-        print("Turning left")
+        #print("Turning left")
         return(HALF_SPEED/9, HALF_SPEED)
         
     def turnRight():    
@@ -72,7 +72,7 @@ if __name__ == "__main__":
         rightMotor.setPosition(float('inf'))
         leftMotor.setVelocity(HALF_SPEED)
         rightMotor.setVelocity(HALF_SPEED/9)
-        print("Turning right")
+        #print("Turning right")
         return(HALF_SPEED, HALF_SPEED/9)
         
     def rotateLeft():
@@ -80,7 +80,7 @@ if __name__ == "__main__":
         rightMotor.setPosition(float('inf'))
         leftMotor.setVelocity(-BASE_SPEED)
         rightMotor.setVelocity(BASE_SPEED)
-        print("Rotating left")
+        #print("Rotating left")
         return(-BASE_SPEED, BASE_SPEED)
         
     def rotateRight():
@@ -88,7 +88,7 @@ if __name__ == "__main__":
         rightMotor.setPosition(float('inf'))
         leftMotor.setVelocity(BASE_SPEED)
         rightMotor.setVelocity(-BASE_SPEED)
-        print("Rotating right")
+        #print("Rotating right")
         return(BASE_SPEED, -BASE_SPEED)
         
         
@@ -97,7 +97,7 @@ if __name__ == "__main__":
         rightMotor.setPosition(float('inf'))
         leftMotor.setVelocity(-BASE_SPEED)
         rightMotor.setVelocity(-BASE_SPEED)
-        print("Moving backward")
+        #print("Moving backward")
         return(-BASE_SPEED, -BASE_SPEED)
     
     def stop():
@@ -105,7 +105,7 @@ if __name__ == "__main__":
         rightMotor.setPosition(0)
         leftMotor.setVelocity(0)
         rightMotor.setVelocity(0)
-        print("Stopping")
+        #print("Stopping")
         return (0, 0)
         
     def obstacle_evasion(room,x1,y1):
@@ -161,9 +161,9 @@ if __name__ == "__main__":
         
         #print("angle:",angle)
         
-        if angle < -30 : #or angle > 345:
+        if angle < -30 : 
             rotateLeft()
-        elif angle > 30 : #or angle < -345 :
+        elif angle > 30 : 
             rotateRight()
         else:
             moveForward()
@@ -182,7 +182,7 @@ if __name__ == "__main__":
         x,y,z = gps.getValues()
         if (-5.2 <= x <= 4) and (-4 <= y <= 8):
             return 1 #hall
-        elif (4 <= x <= 10) and (4 <= y <= 8):
+        elif (4 <= x <= 10) and (4 <= y <= 9):
             return 2 #coridor
         elif (-5.2 <= x <= 6) and (8 <= y <= 16):
             return 3 #library
@@ -203,11 +203,11 @@ if __name__ == "__main__":
     #defined north south east west for every room  for calculation of route
     def nsew(room):
         if room == 1:
-            return ((-2.6,12),(None,None),(12,6),(-8,-2))
+            return ((-2.6,12),(None,None),(4.5,7),(-8,-2))
         if room == 2:
-            return ((9,12),(10,2),(14,12),(-0.8,2))
+            return ((9,12),(10,2),(14,12),(3,5))
         if room == 3:
-            return ((None,None),(-0.8,2),(None,None),(None,None))
+            return ((None,None),(-2.5,6),(None,None),(None,None))
         if room == 4:
             return ((12,6),(None,None),(None,None),(None,None))
         if room == 5:
@@ -219,7 +219,7 @@ if __name__ == "__main__":
         if room == 8:
             return ((None,None),(-6,6),(None,None),(None,None))
         if room == 9:
-            return ((None,None),(12,6),(None,None),(None,None))
+            return ((None,None),(8,5.5),(None,None),(None,None))
         if room == 0:
             return 0
     flag = 0
@@ -230,12 +230,12 @@ if __name__ == "__main__":
     f = open('annabell_output.txt')
     input = list(f)
     ind = 0
-    print(input)
+    #print(input)
     
     # Main loop:
     while robot.step(timestep) != -1:
-        x,y,z = gps.getValues()
-        print("current cord:",x,y)
+        #x,y,z = gps.getValues()
+        #print("current cord:",x,y)
         try:   
             
             #Fetching coordinates for dedicated room
@@ -243,7 +243,7 @@ if __name__ == "__main__":
                 flag = 1
                 
                 room = room_in()
-                print("Room:",room)
+                #print("Room:",room)
                 
                 getd = input[ind][:-1]
                 
@@ -257,9 +257,9 @@ if __name__ == "__main__":
                 elif getd == 'west':
                     x1,y1=dcoords[3] 
                 else:
-                    print(getd)
                     flag = 0 
                 ind = ind + 1
+                print("input:",getd)
                 #print("index:", ind)          
             else:
                 if x1 == None and y1 == None:
